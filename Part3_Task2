@@ -1,0 +1,60 @@
+solutions = [
+    {
+        'date': '2021-01-01 10:00:00',
+        'name': 'Brad Pitt',
+        'email': 'Participant1@mail.com',
+        'phone': '+7 912-345-67-89',
+        'code': '...'
+    },
+    {
+        'date': '2021-01-01 10:01:00',
+        'name': 'Not Brad Pitt',
+        'email': 'participant2@mail.com',
+        'phone': '+7(912) 3456789',
+        'code': '...'
+    },
+    {
+        'date': '2021-01-01 10:02:00',
+        'name': 'Definitely not Brad Pitt',
+        'email': 'particiPANT1@mail.com',
+        'phone': '79001234567',
+        'code': '...'
+    }
+]
+
+def normalize_number(number):
+    a = number.replace('+', '').replace('(', '').replace(')', '').replace('-', '').replace(' ', '')
+    return a
+
+filtered_solutions = []
+
+filtered_solutions.append(solutions[2])
+
+semi_filter_solution = []
+
+semi_filter_solution.append(solutions[len(solutions) - 1])
+
+for i in range(len(solutions)):
+    for j in range(len(semi_filter_solution)):
+        if j == (len(semi_filter_solution) - 1) and normalize_number(solutions[len(solutions) - i - 1]['phone']) != normalize_number(semi_filter_solution[len(semi_filter_solution) - j - 1]['phone']):
+            semi_filter_solution.append(solutions[len(solutions) - i - 1])
+        elif normalize_number(solutions[len(solutions) - i - 1]['phone']) == normalize_number(semi_filter_solution[len(semi_filter_solution) - j - 1]['phone']):
+            break
+
+print(semi_filter_solution)
+
+
+def compare_email(email1, email2):
+    return False
+
+
+
+for i in range(len(solutions)):
+    for j in range(len(semi_filter_solution)):
+        if j == (len(semi_filter_solution) - 1) and compare_email(solutions[len(solutions) - i - 1]['email'], semi_filter_solution[len(semi_filter_solution) - j - 1]['email']) != False:
+            semi_filter_solution.append(solutions[len(solutions) - i - 1])
+        elif compare_email(solutions[len(solutions) - i - 1]['email'], semi_filter_solution[len(semi_filter_solution) - j - 1]['email']) == False:
+            continue
+        
+
+print(filtered_solutions)
