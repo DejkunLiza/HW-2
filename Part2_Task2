@@ -1,0 +1,37 @@
+from random import randint
+
+
+d = {'American Express': ['34', '37'], 'China T-Union': '31', 'China UnionPay': '62', 'Diners Club International': '36',
+'Diners Club United States & Canada': '54', 'RuPay': ['60', '65', '81', '82'], 'InterPayment': '636',
+'Mastercard': ['51', '52', '53', '54', '55'], 'Visa': '4'}
+
+s = ''
+cards = []
+for j in range(100):
+    for k in range(3):
+        s = s + str(randint(0, 9))
+    cards.append(s)
+    s = ''
+
+print(cards)
+
+
+for i in range(len(cards)):
+    if cards[i][:2] in d['RuPay']:
+        print('RuPay')
+    elif cards[i][:3] == d['InterPayment']:
+        print('InterPayment')
+    elif cards[i][:2] in d['American Express']:
+        print('American Express')
+    elif cards[i][:2] == d['China T-Union']:
+        print('China T-Union')
+    elif cards[i][:2] == d['China UnionPay']:
+        print('China UnionPay')
+    elif cards[i][:2] == d['Diners Club International']:
+        print('Diners Club International')
+    elif cards[i][:2] == d['Diners Club United States & Canada']:
+        print('Diners Club United States & Canada')
+    elif cards[i][:2] in d['Mastercard']:
+        print('Mastercard')
+    elif cards[i][:1] == d['Visa']:
+        print('Visa')
