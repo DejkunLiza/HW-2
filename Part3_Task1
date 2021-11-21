@@ -1,0 +1,32 @@
+solutions = [
+    {
+        'date': '2021-01-01 10:00:00',
+        'email': 'Participant1@mail.com',
+        'code': '...'
+    },
+    {
+        'date': '2021-01-01 10:01:00',
+        'email': 'participant2@mail.com',
+        'code': '...'
+    },
+    {
+        'date': '2021-01-01 10:02:00',
+        'email': 'particiPANT1@mail.com',
+        'code': '...'
+    }
+]
+
+filtered_solutions = []
+
+filtered_solutions.append(solutions[len(solutions) - 1])
+
+for i in range(len(solutions)):
+    for j in range(len(filtered_solutions)):
+        if j == (len(filtered_solutions) - 1) and solutions[len(solutions) - i - 1]['email'].lower() != filtered_solutions[len(filtered_solutions) - j - 1]['email'].lower():
+            filtered_solutions.append(solutions[len(solutions) - i - 1])
+        elif solutions[len(solutions) - i - 1]['email'].lower() == filtered_solutions[len(filtered_solutions) - j - 1]['email'].lower():
+            continue
+        
+
+
+print(filtered_solutions)
