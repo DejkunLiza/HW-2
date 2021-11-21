@@ -6,17 +6,3 @@ for i in range(len(s)):
 
 print(' '.join(s))
 
-
-"""
-for i in range(len(s)):
-    if len(s[i]) < 1:
-        continue
-    else:
-        s_1.append(s[i])
-print(' '.join(s_1))
-"""
-for i in range(len(s)):
-    if '' in s:
-        s.remove('')
-
-print(' '.join(s))
